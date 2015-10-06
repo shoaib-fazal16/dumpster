@@ -1,0 +1,309 @@
+/*********************************************************************************
+* Simple Chat is a chat for SugarCRM developed by Letrium, Inc.
+* Copyright (C) 2006 - 2012 Letrium Inc.
+*
+* This program is free software; you can redistribute it and/or modify it under
+* the terms of the GNU General Public License version 3 as published by the
+* Free Software Foundation with the addition of the following permission added
+* to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+* IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+* OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY;  without even the implied warranty of MERCHANTABILITY or FITNESS
+* FOR A PARTICULAR PURPOSE. See  the GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License along with
+* this program; if  not, see http://www.gnu.org/licenses or write to the Free
+* Software Foundation, Inc., 51  Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+*
+* You can contact Letrium Inc. at email address crm@letrium.com.
+*
+* SimpleChat version 3.0, Copyright (C) Letrium Inc., Taras Machyshyn.
+*
+* In accordance with Section 7(b) of the GNU General Public License version 3,
+* these Appropriate Legal Notices must retain the display of the "Letrium" label.
+*
+*For more information on how to apply and follow the GNU GPL, see http://www.gnu.org/licenses.
+********************************************************************************/
+
+#beforeChat{
+  position: fixed;
+  /*bottom: 0;
+  right: 0;*/
+  /*top:auto,
+  right: auto;*/
+  left:0;
+  bottom:440px;
+}
+
+.evidence{
+    color:gray;
+    padding:10px;
+    margin-right:5px;
+    margin-top:5px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+}
+#dock{
+    display:block;
+    padding-top:10px;
+    height:30px;
+}
+/*#dock img{
+    padding-right:10px;
+}*/
+.restoreContainer{
+    z-index: 2;
+}
+#daddy-shoutbox {
+    padding: 5px;
+    color: white;
+    width: 600px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+}
+.users-list{
+    cursor: pointer;
+    cursor: hand;
+}
+span.users-list:hover {
+    color: blue;
+}
+/*
+#daddy-shoutbox-list {
+    text-align: left;
+    margin: 0px auto;
+    float: left;
+    font-size: 13px;
+    width: 330px;
+    position: static;
+    white-space: -pre-wrap; //Opera 4-6 
+    white-space: -o-pre-wrap; // Opera 7    
+    white-space: -moz-pre-wrap; // Mozilla, since 1999 
+    word-wrap: break-word; // Internet Explorer 5.5+ 
+}
+*/
+
+img.arrow{
+	position:absolute;
+	cursor:pointer;
+	z-index:20;
+	width:20px;
+	height:30px
+	
+}
+.daddy-shoutbox-list {
+    text-align: left;
+    margin: 0px auto;
+    float: left;
+    font-size: 13px;
+    width: 330px;
+    position: static;
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */   
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+ .shoutbox-list {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 2px;
+}
+.shoutbox-list-user {
+    position: static;
+    padding: 3px 3px 3px 20px;
+    background-image: url('../elements/icons/edit_user.png');  /*user.png*/
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-color: transparent;
+    color: #0063CC;
+}
+.shoutbox-list-user:hover{
+  border: 1px solid #DDDDDD;
+  -moz-border-radius:5px;
+  border-radius:5px;
+}
+.shoutbox-list-selectuser {
+    color: #098DDE;
+    position: static;
+    padding: 3px 3px 3px 20px;
+    background-image: url('../elements/icons/user_send.png');
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-color: transparent;
+}
+.shoutbox-list-selectuser:hover{
+  border: 1px solid #DDDDDD;
+  -moz-border-radius:5px;
+  border-radius:5px;
+}
+
+#daddy-user-list{
+    float: left;
+    color: blue;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    cursor: hand;
+    height: 230px;
+    width: 100%;
+}
+#daddy-shoutbox-form {
+    text-align: left;
+    }
+.shoutbox-list-time {
+    color: #8DA2B4;
+    }
+.shoutbox-list-nick {
+    margin-left: 5px;
+    font-weight: bold;
+    }
+.shoutbox-list-message {
+    margin-left: 5px;
+    }
+.shoutbox-list-privat-message {
+    margin-left: 5px;
+    color: #008000;
+}
+
+#daddy-shoutbox a:link, #daddy-shoutbox a:visited, #daddy-shoutbox a:hover {
+	color: #ffffff;
+	text-decoration:none;
+}
+h1 {
+	font-size: 1.1em;
+	background: #EEE;
+	padding: 2px;
+	border: 1px solid silver;
+	cursor: pointer;
+}
+
+pre {
+	width: 200px;
+	font-family: monospace;
+	}
+.isay{
+    color: #0063cc;
+     }
+.tome{
+    color: #098dde;
+        }
+#myText{
+  overflow: hidden;
+}
+.chattextarea{
+
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+}
+.clearuser ,a.clearuser:hover{
+  color: red;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none
+}
+
+.pretextarea{
+  padding-left: 0;
+  margin-left: auto;
+  clear:both;
+  display: block;
+  width: 250px;
+  float: left;
+}
+
+#mypanelbody{
+   width: 600px;
+}
+
+#user_tab_all a
+	{
+	padding: 0 10px;
+	
+	}
+ul.tabs {
+	height: 25px;
+	line-height: 25px;
+	margin: 0 -4000px 0 -40px;
+	list-style: none;
+	width:auto;
+	white-space:nowrap;
+}
+/* * html ul.tabs {margin-bottom: 0;}    */
+ul.tabs li {
+	float: left;
+	display:inline;
+	margin-right: 1px;
+	
+}
+ul.tabs li a {
+	display: block;
+	padding: 0 1px 0px 10px;
+	margin-bottom: -1px;
+	color: #444;
+	text-decoration: none;
+	cursor: pointer;
+	background: #F9F9F9;
+	border: 1px solid #E8E8E8;
+	position: relative;
+}
+/** html ul.tabs li a {float: left}
+*+html ul.tabs li a {float: left} */
+ul.tabs li.tab-current a {
+	color: #444;
+	background: rgba(239, 239, 239, 0);
+	padding: 0px 1px 0px 10px;
+	border: 1px solid #CACACA;
+	border-bottom: 1px solid rgba(239, 239, 239, 0);
+}
+
+ul.tabs li a:hover {
+	padding: 0 1px  0px 10px;
+	border: 1px solid #CACACA;
+	border-bottom: 1px solid #EFEFEF;
+}
+
+ul.tabs li.closed {
+	display: none;
+}
+.mypanel {
+	border: 1px solid #DDD;
+	background: #EFEFEF;
+	padding: 0 12px;
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+img.arrow {
+	opacity: 0.3;
+}
+img.arrow:hover {
+	opacity: 0.5;
+}
+
+
+/*white theme*/
+div.white ul.tabs li a {
+	background-color: #EBEBEB;
+	border: 1px solid #DCDCDC;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+div.white ul.tabs li.tab-current a {
+	background-color: rgba(249, 249, 249, 0);
+	border: 1px solid #BFBFBF;
+	border-bottom: 1px solid rgba(249, 249, 249, 0);
+}
+
+div.white ul.tabs li a:hover {
+	padding: 0 1px 0px 10px;
+	border: 1px solid #BFBFBF;
+	border-bottom: 1px solid rgba(249, 249, 249, 0);
+}
+/*end white theme*/
+

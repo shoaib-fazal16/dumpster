@@ -1,0 +1,137 @@
+<!-- BEGIN: main -->
+<script>
+	var expand_collapse_chat = '{EXPAND_COLLAPSE_CHAT}';
+</script>
+<script type="text/javascript">var loaded=false; var ToSmb='{MOD.LBL_LETRIUM_TO}'; var chatSkin='{SKIN}';</script>
+<link rel="stylesheet" type="text/css" href="modules/let_Chat/css/mbContainer.css" />
+<link rel="stylesheet" type="text/css" href="modules/let_Chat/css/style.css" />
+{INCLUDE_JQUERY}
+<script type="text/javascript" src="modules/let_Chat/inc/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="modules/let_Chat/inc/ui.core.min.js"></script>
+<script type="text/javascript" src="modules/let_Chat/inc/ui.draggable.min.js"></script>
+<script type="text/javascript" src="modules/let_Chat/inc/ui.resizable.min.js"></script>
+<script type="text/javascript" src="modules/let_Chat/inc/jquery.metadata.js"></script>
+<script type="text/javascript" src="modules/let_Chat/inc/mbContainer.js"></script>
+<script type="text/javascript" src="modules/let_Chat/js/jquery.form.js"></script>
+<script type="text/javascript" src="modules/let_Chat/js/jquery.shoutbox.js"></script>
+<script type="text/javascript" src="modules/let_Chat/js/jquery.popupWindow.js"></script>
+
+
+
+<div id="beforeChat" style="z-index:180; background-color: #f1f1f1;{BOTTOM}">
+  <div id="myChat" class="containerPlus draggable {ldelim}buttons:'m',icon:'chat.png',skin:'{SKIN}', width:'360', collapsed:'{COLLAPSED}'{rdelim}" style="height:{CHATH}; width:300px; position: absolute;">
+    <div class="no">
+        <div class="ne">
+            <div class="n">
+                &nbsp;&nbsp;Simple Chat&nbsp;
+                <span style="font-size: 10px;">{CHAT_VERSION}</span>
+            </div>
+        </div>
+
+        <div class="o">
+            <div class="e">
+                <div class="c">
+                    <div class="mbcontainercontent" id="myText" style="overflow:hidden;">
+			<span style = "left:5px;position:absolute;top:34px;z-index:10;	width:20px;height:30px">
+			<img src = "modules/let_Chat/images/arrow_left.png" id = "move_left"  class = "arrow"/></span>
+			<span style = "left:333px;position:absolute;top:34px;z-index:10;width:20px;height:30px">
+			<img src = "modules/let_Chat/images/arrow_right.png" id = "move_right"  class = "arrow"/></span>
+			<div style="width:310px; overflow:hidden;">
+				<ul class="tabs tabs1">
+
+					<li id="user_tab_all" class="t1 tab-current"><a usr_id="all">all</a></li>
+
+				</ul>
+			</div>
+			
+                      <div id="daddy-shoutbox-list" class = "daddy-shoutbox-list" style="overflow: auto; height: 230px;"></div>
+
+                      <div style="display: block;">
+                        <hr>
+                        <form id="daddy-shoutbox-form" action="index.php?module=let_Chat&action=backend&task=add" method="post">
+
+                          <input type="hidden" name="nickname" value="{USER_NAME}" />
+                          <input type="hidden" id="for_user" name="for_user" value="all" />
+                          <input type="hidden" id="mes_time" name="time" value="0" />
+
+                          <div style="display: block; width: 250px; float: left;">
+                          	<div id="daddy-shoutbox-response-accept" style="display: none; clear:both; float: left;"><img src="modules/let_Chat/images/accept.png" /></div>
+                            <div id="daddy-shoutbox-response-load" style="display: none; clear:both; float: left;"><img src="modules/let_Chat/images/loader.gif" /></div>
+                            &nbsp;{MOD.LBL_LETRIUM_MESSAGE}
+                            <b><span id="daddy-shoutbox-touser"></span></b>
+                            &nbsp;<a class="clearuser" style="display:none;" onclick="clearUser();">[{MOD.LBL_LETRIUM_CANCEL}]</a>
+                          </div>
+
+                          <div id="history" style="display: block; text-align:center">
+                            <a href="index.php?module=let_Chat&action=history" title="Messages history" style="text-decoration: none;" class="history">{MOD.LBL_LETRIUM_HISTORY}</a>
+                          </div>
+
+                          <div class="pretextarea">
+                            <textarea class="chattextarea" id="mess" name="message" style="width: 100%; height: 60px;" onkeypress="if ( (event.keyCode==10 || (event.keyCode==13)) && ($('#mess').prop('readonly')==false)) {ldelim} $('#daddy-shoutbox-form').submit();{rdelim}" ></textarea>
+                          </div>
+
+                          <div align="right" id="dock" style="display: block;  text-align:center">&nbsp;</div>
+                          <div style="clear:both; width: 10px; height: 10px;">&nbsp;</div>
+
+                        </form>
+                        <br />
+                      </div>
+                      <font size="1" style="float:right; opacity:0.5;"></font>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+          <div class="so"><div class="se"><div class="s"> </div></div></div>
+        </div>
+    </div>
+  </div>
+
+
+  <div id="myUsers" class="containerPlus draggable {ldelim}buttons:'i', skin:'white', width:'200', dock:'dock', collapsed:'false', iconized:'true',icon:'user_group.png'{rdelim}" style="left:350px; position:fixed; z-index:2147483647;">
+    <div class="no"><div class="ne"><div class="n">{MOD.LBL_LETRIUM_USERS}</div></div>
+      <div class="o">
+        <div class="e">
+          <div class="c">
+            <div class="mbcontainercontent">
+                <div id="daddy-user-list" style="overflow: auto;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="so"><div class="se"><div class="s"> </div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript"> myCurrentUser='{USER_NAME}'; meo='{A}';</script>
+<script type="text/javascript" src="modules/let_Chat/js/mainchat.js"></script>
+<script>
+	var draggable_disable = '{DRAGGABLE_DISABLE}';
+	var chat_location = '{CHAT_LOCATION}';
+	$(document).ready(function(){
+		if (chat_location == 'Right'){
+			var widthWindow = $(window).width();
+			var chatWidth = parseInt($('#myChat').css('width'));
+			chatWidth = (chatWidth < 360)? 360 : chatWidth;
+			var left_shift = widthWindow - chatWidth;
+			$('#myChat').css({'left' : left_shift+'px'});
+		}
+		
+		if (!draggable_disable){
+			$("#myChat").hover(function(){
+				$( ".draggable" ).draggable( "destroy" );
+			});
+		}
+	})
+	
+</script>
+
+<!-- END: main -->
